@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>横向滚动</title>
+
+<link href="../../css/smoothness/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+<script src="../../js/jquery-1.9.0.js"></script>
+<script src="../../js/jquery-ui-1.10.0.custom.js"></script>
+ 
+ 
+<link href="../css/no320.fullscreen.css" rel="stylesheet" /> 
+<script src="../js/no320.fullscreen.js"></script> 
+
+
+<script>
+$(function(){
+	$( "#cart").draggable({ handle: ".ui-widget-header" }).resizable();
+});
+	
+</script> 
+	
+<style>
+	h1 { padding: .2em; margin: 0; }
+	#products { float:left; width: 500px; margin-right: 2em; }
+	#cart { width: 500px; float: left; margin-top: 1em; }
+	/* style the list to maximize the droppable hitarea */
+	#cart ol { margin: 0; padding: 1em 0 1em 3em; }	
+</style>
+
+</head>
+ 
+<body>
+<div class="outMain">
+     <div class="screen">111
+		 论潮流
+		 
+		 ＃ server端
+		 -企业级应用，仍然java为主，ssh2为主，外加bpm，中间件，
+		 构建工具也有ant，maven，ivy，gradle等
+		 -网站还是php为多，非常多的cms，bbs，网站，这门语言入门比较简单，用好的话和其他语言难度是一样的。
+		 lamp或lnmp学习的东西还不错
+		 -ruby on rails，已经8年的老牌快速开发框架 ，看着简单，学起来很费劲，太多gem，规则，新鲜东西
+		 比如权限管理的，coffeescript，sass，slim,haml，jquery. 
+		 各种测试，约定，定制dsl
+		 这是一个要非常有激情才能做的。永远最潮，如果你想享受高效，就必须时刻学习。ruby真是美的让人心动。
+		 -.net 我不否认它的先进性。
+		
+	 </div>
+	 
+     <div class="screen">
+		 前端
+		 - js
+		 - css
+		 - ps
+		 - html5 mobile
+	 </div>
+	 
+     <div class="screen">
+		<div id="cart">
+			<h1 class="ui-widget-header">今日待办
+		 
+			</h1>
+			<div class="ui-widget-content" id='today_list'>
+				<ul>
+					<li class="placeholder">请拖放到此处</li>
+				</ul>
+		
+				<div id="toolbar" style='display:none'>
+				  <button class="beginning">add</button>
+				  <button class="rewind">rewind</button> 
+				</div
+		
+			</div>
+		</div>
+	 </div>
+     <div class="screen">444<li class="placeholder">请拖放到此处</li></div>
+ 
+</div>
+ 
+
+
+ 
+
+
+ 
+</body>
+ 
+</html>
+ 

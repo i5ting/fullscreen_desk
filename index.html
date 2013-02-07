@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Todo</title>
+	<link href="css/smoothness/jquery-ui-1.10.0.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.9.0.js"></script>
+	<script src="js/jquery-ui-1.10.0.custom.js"></script>
+	
+	<link rel="stylesheet" href="demos.css">
+	<style>
+	h1 { padding: .2em; margin: 0; }
+	#products { float:left; width: 500px; margin-right: 2em; }
+	#cart { width: 500px; float: left; margin-top: 1em; }
+	/* style the list to maximize the droppable hitarea */
+	#cart ol { margin: 0; padding: 1em 0 1em 3em; }
+	
+	#cart1 { width: 500px; float: left; margin-top: 1em; }
+	
+    #toolbar {
+	   display:none;
+       padding: 4px;
+       display: inline-block;
+	   width:96%;
+     }
+     /* support: IE7 */
+     *+html #toolbar {
+       display: inline;
+   	 }
+  	
+	 #cart ul{
+		 background-color:lightblue;
+	 }
+  
+  
+     li{
+     	height:98px;
+		padding:1px;
+     }
+	 
+ 	ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
+ 	li { margin: 5px; padding: 5px; width: 150px; height:50px;}
+ 	#sortable li span { position: absolute; margin-left: -1.3em; }
+	</style>
+	<script>
+	$(function() {
+		// $( "#catalog" ).accordion();
+		$( "#products li" ).draggable({
+			appendTo: "body",
+			helper: "clone"
+		});
+		$( "#cart ul" ).droppable({
+			activeClass: "ui-state-default",
+			hoverClass: "ui-state-hover",
+			accept: ":not(.ui-sortable-helper)",
+			drop: function( event, ui ) {
+				$( this ).find( ".placeholder" ).remove();
+				$( "<li></li>" ).text( ui.draggable.text()).appendTo( this );
+				$("this").append("<hr>");
+			}
+		}).sortable({
+			items: "li:not(.placeholder)",
+			sort: function() {
+				// gets added unintentionally by droppable interacting with sortable
+				// using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+				$( this ).removeClass( "ui-state-default" );
+			}
+		});
+		$( "#cart,#cart1").draggable({ handle: ".ui-widget-header" });
+		
+		$( "#products").draggable({ handle: ".ui-widget-header" });
+		
+		
+	    $( ".beginning" ).button({
+	      text: false,
+	      icons: {
+	        primary: "ui-icon-seek-start"
+	      }
+	    });
+	    $( ".rewind" ).button({
+	      text: false,
+	      icons: {
+	        primary: "ui-icon-seek-prev"
+	      }
+	    });
+		
+		// $(".ui-widget-content").hover(function(){
+		// 		$(this).find('#toolbar').show();
+		// 	},function(){
+		// 		$(this).find('#toolbar').hide();
+		// 	});
+		
+		
+		
+	});
+	
+	 
+  
+	</script>
+</head>
+<body>
+ 
+<div id="products">
+	<h1 class="ui-widget-header">活动列表
+		 
+	</h1>
+	<div class="ui-widget-content">
+		<ul>
+			<li>增加一段测试代码</li>
+			<li>给张婷打电话</li>
+			<li>洗衣服</li>
+			<li>修改1个bug</li>
+			<li>给手机充电</li>
+			<li>订火车票</li>
+			<li>发布版本</li> 
+		</ul>
+		
+		
+		<div id="toolbar" style='display:none'>
+		  <button class="beginning">add</button>
+		  <button class="rewind">rewind</button> 
+		</div>
+		
+	</div>
+</div>
+ 
+
+
+
+<div id="cart">
+	<h1 class="ui-widget-header">今日待办
+		 
+	</h1>
+	<div class="ui-widget-content" id='today_list'>
+		<ul>
+			<li class="placeholder">请拖放到此处</li>
+		</ul>
+		
+		<div id="toolbar" style='display:none'>
+		  <button class="beginning">add</button>
+		  <button class="rewind">rewind</button> 
+		</div
+		
+	</div>
+</div>
+
+ 
+ 
+</body>
+</html>
